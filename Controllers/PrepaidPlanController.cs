@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Google.Apis.Dialogflow.v2;
+using System.Text;
 
 namespace demoofuserplans.Controllers
 {
@@ -16,7 +18,16 @@ namespace demoofuserplans.Controllers
         [HttpPost]
         public IHttpActionResult Post()
         {
-            return Json(db.Prepaid_Plan.ToList());
-        }
+            var response = new Google.Apis.Dialogflow.v2.Data.GoogleCloudDialogflowV2beta1WebhookResponse();
+
+          var sp = new StringBuilder();
+          db.Prepaid_Plan.ToList().ForEach((x) =>
+         {
+           sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB /per day" + Environment.NewLine);
+         });
+
+          response.FulfillmentText = sp.ToString();
+                return Json(response);
+            }
     }
 }
