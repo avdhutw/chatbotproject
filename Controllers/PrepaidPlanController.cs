@@ -13,8 +13,8 @@ namespace demoofuserplans.Controllers
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
 
 
-        [HttpGet]
-        public IHttpActionResult Get()
+        [HttpPost]
+        public IHttpActionResult Post()
         {
             return Json(db.Prepaid_Plan.ToList());
         }
