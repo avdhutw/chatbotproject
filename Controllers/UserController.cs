@@ -14,10 +14,10 @@ namespace demoofuserplans.Controllers
     {
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
 
-        public int HttpPost { get; private set; }
+       
 
-        [HttpGet]
-        public IHttpActionResult Get()
+        [HttpPost]
+        public IHttpActionResult Post()
         {
             return Json(db.Users.ToList());
         }
@@ -33,16 +33,16 @@ namespace demoofuserplans.Controllers
 
 
 
-        [HttpPost]
-        public async Task<IHttpActionResult> InsertUser(User user)
-        {
+        //[HttpPost]
+        //public async Task<IHttpActionResult> InsertUser(User user)
+        //{
            
 
-            db.Users.Add(user);
-            await db.SaveChangesAsync();
+        //    db.Users.Add(user);
+        //    await db.SaveChangesAsync();
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
     }
 }
