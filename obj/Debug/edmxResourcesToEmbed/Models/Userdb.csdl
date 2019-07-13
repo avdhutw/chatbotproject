@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemochatbootsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Client_id" />
+    </Key>
+    <Property Name="Client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone_no" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="First_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Current_plan" Type="Int32" />
+    <Property Name="Lastthree_m" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Lastsix_m" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Lastone_yr" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Typeof_user" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Prepaid_Plan">
+    <Key>
+      <PropertyRef Name="Plan_id" />
+    </Key>
+    <Property Name="Plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Plan_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Noof_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Datalimit_per" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Noof_sms" Type="Int32" />
+    <Property Name="Noof_calls" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Isunlimitedcalling_enabled" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="DemochatbootsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" />
+  </EntityContainer>
+</Schema>
