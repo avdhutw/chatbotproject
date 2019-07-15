@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DemochatbootsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Demochatboots.dbo.Prepaid_Plan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Prepaid_Plan">
     <Key>
       <PropertyRef Name="Plan_id" />
     </Key>
     <Property Name="Plan_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Plan_name" Type="nvarchar" MaxLength="10" />
+    <Property Name="Plan_name" Type="nvarchar" MaxLength="50" />
     <Property Name="Noof_day" Type="nvarchar" MaxLength="10" />
     <Property Name="Datalimit_per" Type="nvarchar" MaxLength="10" />
     <Property Name="Noof_sms" Type="int" />
@@ -27,19 +25,10 @@ warning 6002: The table/view 'Demochatboots.dbo.Prepaid_Plan' does not have a pr
     <Property Name="Lastsix_m" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Lastone_yr" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Typeof_user" Type="varchar" MaxLength="4" />
+    <Property Name="DOB" Type="datetime" />
   </EntityType>
   <EntityContainer Name="DemochatbootsModelStoreContainer">
+    <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Prepaid_Plan].[Plan_id] AS [Plan_id], 
-    [Prepaid_Plan].[Plan_name] AS [Plan_name], 
-    [Prepaid_Plan].[Noof_day] AS [Noof_day], 
-    [Prepaid_Plan].[Datalimit_per] AS [Datalimit_per], 
-    [Prepaid_Plan].[Noof_sms] AS [Noof_sms], 
-    [Prepaid_Plan].[Noof_calls] AS [Noof_calls], 
-    [Prepaid_Plan].[Isunlimitedcalling_enabled] AS [Isunlimitedcalling_enabled]
-    FROM [dbo].[Prepaid_Plan] AS [Prepaid_Plan]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

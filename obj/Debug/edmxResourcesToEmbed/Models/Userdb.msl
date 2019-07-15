@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="DemochatbootsModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Client_id" ColumnName="Client_id" />
           <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
           <ScalarProperty Name="First_name" ColumnName="First_name" />

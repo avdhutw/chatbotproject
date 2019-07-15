@@ -270,3 +270,6 @@ C:\Leanning\chatbot\chatbotproject\bin\System.Web.WebPages.Razor.xml
 C:\Leanning\chatbot\chatbotproject\bin\Antlr3.Runtime.pdb
 C:\Leanning\chatbot\chatbotproject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Leanning\chatbot\chatbotproject\obj\Debug\demoofuserplans.csproj.CopyComplete
+C:\Leanning\chatbot\chatbotproject\bin\Google.Protobuf.dll
+C:\Leanning\chatbot\chatbotproject\bin\Google.Protobuf.pdb
+C:\Leanning\chatbot\chatbotproject\bin\Google.Protobuf.xml

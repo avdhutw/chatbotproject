@@ -5,8 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Google.Apis.Dialogflow.v2;
+using Google.Apis.Dialogflow.v2.Data;
 using System.Text;
+using Google.Protobuf;
+using System.IO;
 
 namespace demoofuserplans.Controllers
 {
@@ -14,11 +16,21 @@ namespace demoofuserplans.Controllers
     {
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
 
+    //private static readonly JsonParser jsonParser =
+    //  new JsonParser(JsonParser.Settings.Default.WithIgnoreUnknownFields(true));
 
-        [HttpPost]
-        public IHttpActionResult Post()
+    [HttpPost]
+         public  IHttpActionResult Post()
         {
-            var response = new Google.Apis.Dialogflow.v2.Data.GoogleCloudDialogflowV2beta1WebhookResponse();
+      //GoogleCloudDialogflowV2WebhookRequest request;
+      //using (var stream = await Request.Content.ReadAsStreamAsync())
+      //{
+      //  using (var reader = new StreamReader())
+      //  {
+      //    request = jsonParser.Parse<GoogleCloudDialogflowV2WebhookRequest>();
+      //  }
+      //}
+      var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
 
           var sp = new StringBuilder();
           db.Prepaid_Plan.ToList().ForEach((x) =>

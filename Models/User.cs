@@ -23,5 +23,6 @@ namespace demoofuserplans.Models
         public Nullable<decimal> Lastsix_m { get; set; }
         public Nullable<decimal> Lastone_yr { get; set; }
         public string Typeof_user { get; set; }
+        public Nullable<System.DateTime> DOB { get; set; }
     }
 }
