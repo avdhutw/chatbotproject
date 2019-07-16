@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -28,10 +29,25 @@ namespace demoofuserplans.Controllers
         [ActionName("TestPost")]
         public IHttpActionResult TestPost([FromBody]dynamic Body)
         {
-            DateTime date = Body.queryResult.parameters.date[0].Value;
-            string phoneNumber = Body.queryResult.parameters["phone-number"][0].Value;
+            string item = "";
+            string action = Body.queryResult.action;
+            switch (action.ToLower())
+            {
+                case "getplans":
+                    item = this.GetAllPlans();
+                    break;
+                case "getmyplan":
 
-            var item = this.Planinfo(phoneNumber, date);
+                    DateTime date = Body.queryResult.parameters.date[0].Value;
+                    string phoneNumber = Body.queryResult.parameters["phone-number"][0].Value;
+
+                    item = this.Planinfo(phoneNumber, date);
+                    break;
+                default:
+                    item = "did not understand you";
+                    break;
+            }
+
 
             var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
 
@@ -67,6 +83,18 @@ namespace demoofuserplans.Controllers
 
             };
             return "You dont have a prepaid plan...";
+        }
+
+        private string GetAllPlans()
+        {
+            var sp = new StringBuilder();
+            db.Prepaid_Plan.ToList().ForEach((x) =>
+            {
+                sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB /per day" + Environment.NewLine);
+            });
+
+            return sp.ToString();
+
         }
 
 

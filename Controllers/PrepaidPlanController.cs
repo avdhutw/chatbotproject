@@ -20,6 +20,7 @@ namespace demoofuserplans.Controllers
     //  new JsonParser(JsonParser.Settings.Default.WithIgnoreUnknownFields(true));
 
     [HttpPost]
+    [ActionName("GetPlans")]
          public  IHttpActionResult Post()
         {
      
