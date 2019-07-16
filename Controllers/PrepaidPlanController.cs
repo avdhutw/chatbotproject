@@ -22,14 +22,7 @@ namespace demoofuserplans.Controllers
     [HttpPost]
          public  IHttpActionResult Post()
         {
-      //GoogleCloudDialogflowV2WebhookRequest request;
-      //using (var stream = await Request.Content.ReadAsStreamAsync())
-      //{
-      //  using (var reader = new StreamReader())
-      //  {
-      //    request = jsonParser.Parse<GoogleCloudDialogflowV2WebhookRequest>();
-      //  }
-      //}
+     
       var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
 
           var sp = new StringBuilder();

@@ -190,6 +190,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hand-code\Prepaid_plan.cs" />
     <Compile Include="Models\Prepaid_Plan.cs">
       <DependentUpon>Userdb.tt</DependentUpon>
     </Compile>

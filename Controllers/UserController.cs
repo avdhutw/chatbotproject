@@ -2,6 +2,7 @@
 using Google.Apis.Dialogflow.v2.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -30,7 +31,7 @@ namespace demoofuserplans.Controllers
             DateTime date = Body.queryResult.parameters.date[0].Value;
             string phoneNumber = Body.queryResult.parameters["phone-number"][0].Value;
 
-            var item = "your birthdate is" + date.ToString() + " and " + phoneNumber + "from API";
+            var item = this.Planinfo(phoneNumber, date);
 
             var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
 
@@ -46,13 +47,33 @@ namespace demoofuserplans.Controllers
 
         }
 
+        private string Planinfo(string phonenmber, DateTime dateofbirth)
+        {
 
+
+            var user = db.Users.Where((x) => x.Phone_no == phonenmber
+            && DbFunctions.TruncateTime(x.DOB) == DbFunctions.TruncateTime(dateofbirth)).FirstOrDefault();
+
+            {
+                if (user != null)
+                {
+                    var plan = db.Prepaid_Plan.Where((p) => p.Plan_id == user.Client_id).FirstOrDefault();
+                    if (plan != null)
+                        return plan.getPlaninfo();
+
+
+                }
+
+
+            };
+            return "You dont have a prepaid plan...";
+        }
 
 
         //[HttpPost]
         //public async Task<IHttpActionResult> InsertUser(User user)
         //{
-           
+
 
         //    db.Users.Add(user);
         //    await db.SaveChangesAsync();
