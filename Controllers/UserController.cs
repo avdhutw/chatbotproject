@@ -24,10 +24,10 @@ namespace demoofuserplans.Controllers
 
         [HttpPost]
         [ActionName("TestPost")]
-        public IHttpActionResult TestPost([FromBody] dynamic Body)
+        public IHttpActionResult TestPost([FromBody]dynamic Body)
         {
-            DateTime date = Body.First.parameters["date"][0];
-            string phoneNumber = Body.First.parameters["phone-number"][0];
+            DateTime date = Body.queryResult.parameters.date[0].Value;
+            string phoneNumber = Body.queryResult.parameters["phone-number"][0].Value;
 
             var item = "your birthdate is" + date.ToString() + " and " + phoneNumber + "from API";
 
