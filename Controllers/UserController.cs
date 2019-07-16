@@ -1,4 +1,5 @@
 ﻿using demoofuserplans.Models;
+using Google.Apis.Dialogflow.v2.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,10 @@ namespace demoofuserplans.Controllers
 
             var item = "your birthdate is" + date.ToString() + " and " + phoneNumber + "from API";
 
-            return Json(new { speech = item , displayText = item });
+            var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
+
+            response.FulfillmentText = item;
+            return Json(response);
         }
 
         [HttpGet]
