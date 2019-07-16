@@ -16,12 +16,17 @@ namespace demoofuserplans.Controllers
 
        
 
+        //[HttpPost]
+        //public IHttpActionResult Post()
+        //{
+        //    return Json(db.Users.ToList());
+        //}
         [HttpPost]
-        public IHttpActionResult Post()
+        [ActionName("TestPost")]
+        public string TestPost([FromBody] dynamic Body)
         {
-            return Json(db.Users.ToList());
+            return Convert.ToString(Body);
         }
-
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
