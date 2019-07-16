@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
+
 namespace demoofuserplans.Controllers
 {
     
@@ -14,19 +15,25 @@ namespace demoofuserplans.Controllers
     {
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
 
-       
-
         //[HttpPost]
         //public IHttpActionResult Post()
         //{
         //    return Json(db.Users.ToList());
         //}
+
+
         [HttpPost]
         [ActionName("TestPost")]
-        public string TestPost([FromBody] dynamic Body)
+        public IHttpActionResult TestPost([FromBody] dynamic Body)
         {
-            return Convert.ToString(Body);
+            DateTime date = Body.First.parameters["date"][0];
+            string phoneNumber = Body.First.parameters["phone-number"][0];
+
+            var item = "your birthdate is" + date.ToString() + " and " + phoneNumber + "from API";
+
+            return Json(new { speech = item , displayText = item });
         }
+
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
