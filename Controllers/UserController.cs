@@ -43,6 +43,13 @@ namespace demoofuserplans.Controllers
 
                     item = this.Planinfo(phoneNumber, date);
                     break;
+                case "usesinfo":
+                    DateTime date1 = Body.queryResult.parameters.date[0].Value;
+                    string phoneNumber1 = Body.queryResult.parameters["phone-number"][0].Value;
+
+                    item = this.usesinfo(phoneNumber1,date1);
+                    break;
+
                 default:
                     item = "did not understand you";
                     break;
@@ -90,9 +97,22 @@ namespace demoofuserplans.Controllers
             var sp = new StringBuilder();
             db.Prepaid_Plan.ToList().ForEach((x) =>
             {
-                sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB /per day" + Environment.NewLine);
+                sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB/per day" + Environment.NewLine);
             });
 
+            return sp.ToString();
+
+        }
+
+        private string usesinfo(string phonenmber, DateTime dateofbirth)
+        {
+            var user = db.Users.Where((x) => x.Phone_no == phonenmber
+          && DbFunctions.TruncateTime(x.DOB) == DbFunctions.TruncateTime(dateofbirth)).ToList();
+            var sp = new StringBuilder();
+            user.ForEach((x) =>
+            {
+                sp.Append($"{x.Lastthree_m}GB {x.Lastsix_m}GB {x.Lastone_yr}GB" + Environment.NewLine);
+            });
             return sp.ToString();
 
         }
