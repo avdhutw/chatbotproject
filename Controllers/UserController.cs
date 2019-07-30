@@ -39,13 +39,13 @@ namespace demoofuserplans.Controllers
                 case "getmyplan":
 
                     DateTime date = Body.queryResult.parameters.date[0].Value;
-                    string phoneNumber = Body.queryResult.parameters["phone-number"][0].Value;
+                    string phoneNumber = Body.queryResult.parameters["phoneNumber"][0].Value;
 
                     item = this.Planinfo(phoneNumber, date);
                     break;
                 case "usesinfo":
                     DateTime date1 = Body.queryResult.parameters.date[0].Value;
-                    string phoneNumber1 = Body.queryResult.parameters["phone-number"][0].Value;
+                    string phoneNumber1 = Body.queryResult.parameters["phoneNumber"][0].Value;
 
                     item = this.usesinfo(phoneNumber1,date1);
                     break;
@@ -80,7 +80,7 @@ namespace demoofuserplans.Controllers
             {
                 if (user != null)
                 {
-                    var plan = db.Prepaid_Plan.Where((p) => p.Plan_id == user.Client_id).FirstOrDefault();
+                    var plan = db.Prepaid_Plan.Where((p) => p.Plan_id == user.Plan_id).FirstOrDefault();
                     if (plan != null)
                         return plan.getPlaninfo();
 

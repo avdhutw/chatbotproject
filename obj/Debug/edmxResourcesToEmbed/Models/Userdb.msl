@@ -2,9 +2,9 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DemochatbootsModelStoreContainer" CdmEntityContainer="DemochatbootsEntities1">
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DemochatbootsModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
+      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
           <ScalarProperty Name="Client_id" ColumnName="Client_id" />
           <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
           <ScalarProperty Name="First_name" ColumnName="First_name" />
@@ -14,11 +14,12 @@
           <ScalarProperty Name="Lastsix_m" ColumnName="Lastsix_m" />
           <ScalarProperty Name="Lastone_yr" ColumnName="Lastone_yr" />
           <ScalarProperty Name="Typeof_user" ColumnName="Typeof_user" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Prepaid_Plan">
-      <EntityTypeMapping TypeName="DemochatbootsModel.Prepaid_Plan">
+      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.Prepaid_Plan)">
         <MappingFragment StoreEntitySet="Prepaid_Plan">
           <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
           <ScalarProperty Name="Plan_name" ColumnName="Plan_name" />

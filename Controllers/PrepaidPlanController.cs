@@ -15,6 +15,7 @@ namespace demoofuserplans.Controllers
     public class PrepaidPlanController : ApiController
     {
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
+       
 
     //private static readonly JsonParser jsonParser =
     //  new JsonParser(JsonParser.Settings.Default.WithIgnoreUnknownFields(true));
@@ -29,7 +30,7 @@ namespace demoofuserplans.Controllers
           var sp = new StringBuilder();
           db.Prepaid_Plan.ToList().ForEach((x) =>
          {
-           sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB /per day" + Environment.NewLine);
+           sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB/per day" + Environment.NewLine);
          });
 
           response.FulfillmentText = sp.ToString();

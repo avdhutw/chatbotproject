@@ -12,7 +12,7 @@
     <Property Name="Noof_calls" Type="nchar" MaxLength="10" />
     <Property Name="Isunlimitedcalling_enabled" Type="bit" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Client_id" />
     </Key>
@@ -24,11 +24,12 @@
     <Property Name="Lastthree_m" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Lastsix_m" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Lastone_yr" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="Typeof_user" Type="varchar" MaxLength="4" />
+    <Property Name="Typeof_user" Type="varchar" MaxLength="12" />
     <Property Name="DOB" Type="datetime" />
+    <Property Name="Plan_id" Type="int" />
   </EntityType>
   <EntityContainer Name="DemochatbootsModelStoreContainer">
     <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -228,6 +228,7 @@
       <DependentUpon>Userdb.edmx</DependentUpon>
       <LastGenOutput>Userdb.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Userdb.edmx.sql" />
     <Content Include="Models\Userdb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Userdb.edmx</DependentUpon>

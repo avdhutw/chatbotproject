@@ -12,8 +12,9 @@
     <Property Name="Lastthree_m" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Lastsix_m" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Lastone_yr" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="Typeof_user" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Typeof_user" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Plan_id" Type="Int32" />
   </EntityType>
   <EntityType Name="Prepaid_Plan">
     <Key>
