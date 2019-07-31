@@ -1,0 +1,63 @@
+﻿@model IEnumerable<demoofuserplans.Models.Prepaid_Plan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Plan_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noof_day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datalimit_per)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noof_sms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noof_calls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Isunlimitedcalling_enabled)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plan_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noof_day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datalimit_per)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noof_sms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noof_calls)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isunlimitedcalling_enabled)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Plan_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Plan_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Plan_id })
+        </td>
+    </tr>
+}
+
+</table>

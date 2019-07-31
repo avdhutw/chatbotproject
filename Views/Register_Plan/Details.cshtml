@@ -1,0 +1,66 @@
+﻿@model demoofuserplans.Models.Prepaid_Plan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prepaid_Plan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noof_day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noof_day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datalimit_per)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datalimit_per)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noof_sms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noof_sms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noof_calls)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noof_calls)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isunlimitedcalling_enabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isunlimitedcalling_enabled)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Plan_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,98 @@
+﻿@model demoofuserplans.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Current_plan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Current_plan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastthree_m)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastthree_m)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastsix_m)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastsix_m)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastone_yr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastone_yr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typeof_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typeof_user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Client_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
