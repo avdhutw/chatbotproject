@@ -17,7 +17,7 @@ namespace demoofuserplans.Controllers
         DemochatbootsEntities1 db = new DemochatbootsEntities1();
        
 
-    //private static readonly JsonParser jsonParser =
+    //private static readonly JsonParser jsonParser ==
     //  new JsonParser(JsonParser.Settings.Default.WithIgnoreUnknownFields(true));
 
     [HttpPost]
