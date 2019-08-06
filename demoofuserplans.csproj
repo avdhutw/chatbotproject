@@ -187,6 +187,7 @@
     <Compile Include="Controllers\PrepaidPlanController.cs" />
     <Compile Include="Controllers\Register_PlanController.cs" />
     <Compile Include="Controllers\Register_UserController.cs" />
+    <Compile Include="Controllers\showsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,25 +195,28 @@
     </Compile>
     <Compile Include="Models\Hand-code\Prepaid_plan.cs" />
     <Compile Include="Models\Prepaid_Plan.cs">
-      <DependentUpon>Userdb.tt</DependentUpon>
+      <DependentUpon>userdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\show.cs">
+      <DependentUpon>userdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>Userdb.tt</DependentUpon>
+      <DependentUpon>userdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Userdb.Context.cs">
+    <Compile Include="Models\userdb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Userdb.Context.tt</DependentUpon>
+      <DependentUpon>userdb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Userdb.cs">
+    <Compile Include="Models\userdb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Userdb.tt</DependentUpon>
+      <DependentUpon>userdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Userdb.Designer.cs">
+    <Compile Include="Models\userdb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Userdb.edmx</DependentUpon>
+      <DependentUpon>userdb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,16 +229,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Userdb.Context.tt">
+    <Content Include="Models\userdb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Userdb.edmx</DependentUpon>
-      <LastGenOutput>Userdb.Context.cs</LastGenOutput>
+      <DependentUpon>userdb.edmx</DependentUpon>
+      <LastGenOutput>userdb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Userdb.edmx.sql" />
-    <Content Include="Models\Userdb.tt">
+    <Content Include="Models\userdb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Userdb.edmx</DependentUpon>
-      <LastGenOutput>Userdb.cs</LastGenOutput>
+      <DependentUpon>userdb.edmx</DependentUpon>
+      <LastGenOutput>userdb.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -257,12 +260,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\Userdb.edmx">
+    <EntityDeploy Include="Models\userdb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Userdb.Designer.cs</LastGenOutput>
+      <LastGenOutput>userdb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Userdb.edmx.diagram">
-      <DependentUpon>Userdb.edmx</DependentUpon>
+    <Content Include="Models\userdb.edmx.diagram">
+      <DependentUpon>userdb.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -296,6 +299,11 @@
     <Content Include="Views\Register_User\Details.cshtml" />
     <Content Include="Views\Register_User\Edit.cshtml" />
     <Content Include="Views\Register_User\Index.cshtml" />
+    <Content Include="Views\shows\Create.cshtml" />
+    <Content Include="Views\shows\Delete.cshtml" />
+    <Content Include="Views\shows\Details.cshtml" />
+    <Content Include="Views\shows\Edit.cshtml" />
+    <Content Include="Views\shows\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

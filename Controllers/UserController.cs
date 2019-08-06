@@ -16,7 +16,7 @@ namespace demoofuserplans.Controllers
     
     public class UserController : ApiController
     {
-        DemochatbootsEntities1 db = new DemochatbootsEntities1();
+        mobile_appEntities2 db = new mobile_appEntities2();
 
         //[HttpPost]
         //public IHttpActionResult Post()

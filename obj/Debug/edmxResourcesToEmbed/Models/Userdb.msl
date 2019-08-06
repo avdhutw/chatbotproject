@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DemochatbootsModelStoreContainer" CdmEntityContainer="DemochatbootsEntities1">
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.User)">
-        <MappingFragment StoreEntitySet="Users">
+  <EntityContainerMapping StorageEntityContainer="mobile_appModelStoreContainer" CdmEntityContainer="mobile_appEntities2">
+    <EntitySetMapping Name="Prepaid_Plan">
+      <EntityTypeMapping TypeName="mobile_appModel.Prepaid_Plan">
+        <MappingFragment StoreEntitySet="Prepaid_Plan">
           <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
+          <ScalarProperty Name="Plan_name" ColumnName="Plan_name" />
+          <ScalarProperty Name="Noof_day" ColumnName="Noof_day" />
+          <ScalarProperty Name="Datalimit_per" ColumnName="Datalimit_per" />
+          <ScalarProperty Name="Noof_sms" ColumnName="Noof_sms" />
+          <ScalarProperty Name="Noof_calls" ColumnName="Noof_calls" />
+          <ScalarProperty Name="Isunlimitedcalling_enabled" ColumnName="Isunlimitedcalling_enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shows">
+      <EntityTypeMapping TypeName="mobile_appModel.show">
+        <MappingFragment StoreEntitySet="shows">
+          <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+          <ScalarProperty Name="channel_name" ColumnName="channel_name" />
+          <ScalarProperty Name="show_name" ColumnName="show_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="mobile_appModel.User">
+        <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Client_id" ColumnName="Client_id" />
           <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
           <ScalarProperty Name="First_name" ColumnName="First_name" />
@@ -15,19 +36,7 @@
           <ScalarProperty Name="Lastone_yr" ColumnName="Lastone_yr" />
           <ScalarProperty Name="Typeof_user" ColumnName="Typeof_user" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Prepaid_Plan">
-      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.Prepaid_Plan)">
-        <MappingFragment StoreEntitySet="Prepaid_Plan">
           <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
-          <ScalarProperty Name="Plan_name" ColumnName="Plan_name" />
-          <ScalarProperty Name="Noof_day" ColumnName="Noof_day" />
-          <ScalarProperty Name="Datalimit_per" ColumnName="Datalimit_per" />
-          <ScalarProperty Name="Noof_sms" ColumnName="Noof_sms" />
-          <ScalarProperty Name="Noof_calls" ColumnName="Noof_calls" />
-          <ScalarProperty Name="Isunlimitedcalling_enabled" ColumnName="Isunlimitedcalling_enabled" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

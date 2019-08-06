@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DemochatbootsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="mobile_appModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Prepaid_Plan">
           <Key>
             <PropertyRef Name="Plan_id" />
@@ -16,6 +16,14 @@
           <Property Name="Noof_sms" Type="int" />
           <Property Name="Noof_calls" Type="nchar" MaxLength="10" />
           <Property Name="Isunlimitedcalling_enabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="shows">
+          <Key>
+            <PropertyRef Name="channel_id" />
+          </Key>
+          <Property Name="channel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="channel_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -33,14 +41,36 @@
           <Property Name="DOB" Type="datetime" />
           <Property Name="Plan_id" Type="int" />
         </EntityType>
-        <EntityContainer Name="DemochatbootsModelStoreContainer">
+        <EntityContainer Name="mobile_appModelStoreContainer">
           <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shows" EntityType="Self.shows" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DemochatbootsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="mobile_appModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Prepaid_Plan">
+          <Key>
+            <PropertyRef Name="Plan_id" />
+          </Key>
+          <Property Name="Plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plan_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Noof_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Datalimit_per" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Noof_sms" Type="Int32" />
+          <Property Name="Noof_calls" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Isunlimitedcalling_enabled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="show">
+          <Key>
+            <PropertyRef Name="channel_id" />
+          </Key>
+          <Property Name="channel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="channel_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Client_id" />
@@ -57,60 +87,59 @@
           <Property Name="DOB" Type="DateTime" Precision="3" />
           <Property Name="Plan_id" Type="Int32" />
         </EntityType>
-        <EntityType Name="Prepaid_Plan">
-          <Key>
-            <PropertyRef Name="Plan_id" />
-          </Key>
-          <Property Name="Plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Plan_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Noof_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Datalimit_per" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Noof_sms" Type="Int32" />
-          <Property Name="Noof_calls" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Isunlimitedcalling_enabled" Type="Boolean" />
-        </EntityType>
-        <EntityContainer Name="DemochatbootsEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Users" EntityType="Self.User" />
+        <EntityContainer Name="mobile_appEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" />
+          <EntitySet Name="shows" EntityType="Self.show" />
+          <EntitySet Name="Users" EntityType="Self.User" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DemochatbootsModelStoreContainer" CdmEntityContainer="DemochatbootsEntities1">
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.User)">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mobile_appModelStoreContainer" CdmEntityContainer="mobile_appEntities2">
+          <EntitySetMapping Name="Prepaid_Plan">
+            <EntityTypeMapping TypeName="mobile_appModel.Prepaid_Plan">
+              <MappingFragment StoreEntitySet="Prepaid_Plan">
+                <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
+                <ScalarProperty Name="Plan_name" ColumnName="Plan_name" />
+                <ScalarProperty Name="Noof_day" ColumnName="Noof_day" />
+                <ScalarProperty Name="Datalimit_per" ColumnName="Datalimit_per" />
+                <ScalarProperty Name="Noof_sms" ColumnName="Noof_sms" />
+                <ScalarProperty Name="Noof_calls" ColumnName="Noof_calls" />
+                <ScalarProperty Name="Isunlimitedcalling_enabled" ColumnName="Isunlimitedcalling_enabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shows">
+            <EntityTypeMapping TypeName="mobile_appModel.show">
+              <MappingFragment StoreEntitySet="shows">
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="channel_name" ColumnName="channel_name" />
+                <ScalarProperty Name="show_name" ColumnName="show_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="mobile_appModel.User">
+              <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Client_id" ColumnName="Client_id" />
-          <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
-          <ScalarProperty Name="First_name" ColumnName="First_name" />
-          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
-          <ScalarProperty Name="Current_plan" ColumnName="Current_plan" />
-          <ScalarProperty Name="Lastthree_m" ColumnName="Lastthree_m" />
-          <ScalarProperty Name="Lastsix_m" ColumnName="Lastsix_m" />
-          <ScalarProperty Name="Lastone_yr" ColumnName="Lastone_yr" />
-          <ScalarProperty Name="Typeof_user" ColumnName="Typeof_user" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Prepaid_Plan">
-      <EntityTypeMapping TypeName="IsTypeOf(DemochatbootsModel.Prepaid_Plan)">
-        <MappingFragment StoreEntitySet="Prepaid_Plan">
-          <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
-          <ScalarProperty Name="Plan_name" ColumnName="Plan_name" />
-          <ScalarProperty Name="Noof_day" ColumnName="Noof_day" />
-          <ScalarProperty Name="Datalimit_per" ColumnName="Datalimit_per" />
-          <ScalarProperty Name="Noof_sms" ColumnName="Noof_sms" />
-          <ScalarProperty Name="Noof_calls" ColumnName="Noof_calls" />
-          <ScalarProperty Name="Isunlimitedcalling_enabled" ColumnName="Isunlimitedcalling_enabled" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+                <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="Current_plan" ColumnName="Current_plan" />
+                <ScalarProperty Name="Lastthree_m" ColumnName="Lastthree_m" />
+                <ScalarProperty Name="Lastsix_m" ColumnName="Lastsix_m" />
+                <ScalarProperty Name="Lastone_yr" ColumnName="Lastone_yr" />
+                <ScalarProperty Name="Typeof_user" ColumnName="Typeof_user" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Plan_id" ColumnName="Plan_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -124,7 +153,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

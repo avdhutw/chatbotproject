@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DemochatbootsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="mobile_appModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Prepaid_Plan">
+    <Key>
+      <PropertyRef Name="Plan_id" />
+    </Key>
+    <Property Name="Plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Plan_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Noof_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Datalimit_per" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Noof_sms" Type="Int32" />
+    <Property Name="Noof_calls" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Isunlimitedcalling_enabled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="show">
+    <Key>
+      <PropertyRef Name="channel_id" />
+    </Key>
+    <Property Name="channel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="channel_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="show_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Client_id" />
@@ -16,20 +36,9 @@
     <Property Name="DOB" Type="DateTime" Precision="3" />
     <Property Name="Plan_id" Type="Int32" />
   </EntityType>
-  <EntityType Name="Prepaid_Plan">
-    <Key>
-      <PropertyRef Name="Plan_id" />
-    </Key>
-    <Property Name="Plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Plan_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Noof_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Datalimit_per" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Noof_sms" Type="Int32" />
-    <Property Name="Noof_calls" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Isunlimitedcalling_enabled" Type="Boolean" />
-  </EntityType>
-  <EntityContainer Name="DemochatbootsEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Users" EntityType="Self.User" />
+  <EntityContainer Name="mobile_appEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" />
+    <EntitySet Name="shows" EntityType="Self.show" />
+    <EntitySet Name="Users" EntityType="Self.User" />
   </EntityContainer>
 </Schema>

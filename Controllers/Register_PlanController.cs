@@ -12,7 +12,7 @@ namespace demoofuserplans.Controllers
 {
     public class Register_PlanController : Controller
     {
-        private DemochatbootsEntities1 db = new DemochatbootsEntities1();
+        private mobile_appEntities2 db = new mobile_appEntities2();
 
         // GET: Register_Plan
         public ActionResult Index()

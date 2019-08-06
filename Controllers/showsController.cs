@@ -10,111 +10,107 @@ using demoofuserplans.Models;
 
 namespace demoofuserplans.Controllers
 {
-    public class Register_UserController : Controller
+    public class showsController : Controller
     {
         private mobile_appEntities2 db = new mobile_appEntities2();
 
-        // GET: Register_User
+        // GET: shows
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.shows.ToList());
         }
 
-        // GET: Register_User/Details/5
+        // GET: shows/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            show show = db.shows.Find(id);
+            if (show == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(show);
         }
 
-        // GET: Register_User/Create
+        // GET: shows/Create
         public ActionResult Create()
         {
-            ViewBag.plans = new SelectList(db.Prepaid_Plan, "Plan_id", "Plan_name");
-
-
             return View();
         }
 
-        // POST: Register_User/Create
+        // POST: shows/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Client_id,Phone_no,First_name,Last_name,Current_plan,Lastthree_m,Lastsix_m,Lastone_yr,Typeof_user,DOB,Plan_id")] User user)
+        public ActionResult Create([Bind(Include = "channel_id,channel_name,show_name")] show show)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.shows.Add(show);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(show);
         }
 
-        // GET: Register_User/Edit/5
+        // GET: shows/Edit/5
         public ActionResult Edit(int? id)
         {
-            ViewBag.plans = new SelectList(db.Prepaid_Plan, "Plan_id", "Plan_name");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            show show = db.shows.Find(id);
+            if (show == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(show);
         }
 
-        // POST: Register_User/Edit/5
+        // POST: shows/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Client_id,Phone_no,First_name,Last_name,Current_plan,Lastthree_m,Lastsix_m,Lastone_yr,Typeof_user,DOB,Plan_id")] User user)
+        public ActionResult Edit([Bind(Include = "channel_id,channel_name,show_name")] show show)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(show).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(show);
         }
 
-        // GET: Register_User/Delete/5
+        // GET: shows/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            show show = db.shows.Find(id);
+            if (show == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(show);
         }
 
-        // POST: Register_User/Delete/5
+        // POST: shows/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            show show = db.shows.Find(id);
+            db.shows.Remove(show);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DemochatbootsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="mobile_appModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Prepaid_Plan">
     <Key>
       <PropertyRef Name="Plan_id" />
@@ -11,6 +11,14 @@
     <Property Name="Noof_sms" Type="int" />
     <Property Name="Noof_calls" Type="nchar" MaxLength="10" />
     <Property Name="Isunlimitedcalling_enabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="shows">
+    <Key>
+      <PropertyRef Name="channel_id" />
+    </Key>
+    <Property Name="channel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="channel_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="show_name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -28,8 +36,9 @@
     <Property Name="DOB" Type="datetime" />
     <Property Name="Plan_id" Type="int" />
   </EntityType>
-  <EntityContainer Name="DemochatbootsModelStoreContainer">
+  <EntityContainer Name="mobile_appModelStoreContainer">
     <EntitySet Name="Prepaid_Plan" EntityType="Self.Prepaid_Plan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shows" EntityType="Self.shows" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

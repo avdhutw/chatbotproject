@@ -14,7 +14,7 @@ namespace demoofuserplans.Controllers
 {
     public class PrepaidPlanController : ApiController
     {
-        DemochatbootsEntities1 db = new DemochatbootsEntities1();
+        mobile_appEntities2 db = new mobile_appEntities2();
        
 
     //private static readonly JsonParser jsonParser ==
