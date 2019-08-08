@@ -4,12 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<input type="text" id="name" name="name" value="" /> <input type="button" id="SearchButton" name="SearchButton" value="Search" />
+
 <table class="table">
     <tr>
         <th>
@@ -38,3 +41,32 @@
 }
 
 </table>
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+
+        $("#SearchButton").click(function () {
+
+            var data12 = { inputstring: $("#name").val() };
+
+
+
+            $.ajax({
+                url: "/shows/searchstring",
+                data: JSON.stringify(data12),
+                contentType: 'application/json',
+                method: 'POST',
+                success: function (result) {
+                    window.location.href = "https://localhost:44370/shows/serachApi?inputString=" + $("#name").val();
+                }
+            });
+        });
+    });
+
+
+
+</script>

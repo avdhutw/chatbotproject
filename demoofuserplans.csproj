@@ -304,6 +304,7 @@
     <Content Include="Views\shows\Details.cshtml" />
     <Content Include="Views\shows\Edit.cshtml" />
     <Content Include="Views\shows\Index.cshtml" />
+    <Content Include="Views\shows\serachApi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

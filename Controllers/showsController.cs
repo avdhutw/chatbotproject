@@ -20,6 +20,26 @@ namespace demoofuserplans.Controllers
             return View(db.shows.ToList());
         }
 
+
+        //public JsonResult searchstring(string inputstring)
+        //{
+        //    var data = db.shows.Where(x => x.channel_name.Contains(inputstring)).ToList();
+
+        //    return Json(data, JsonRequestBehavior.AllowGet);
+        //}
+        //[HttpPost]
+        //[ActionName("TestPost1")]
+        public JsonResult serachApi(string inputstring)
+        {
+
+
+            var data = db.shows.Where(x => x.channel_name.Contains(inputstring)).ToList();
+
+
+            return Json(data,JsonRequestBehavior.AllowGet);
+        }
+
+
         // GET: shows/Details/5
         public ActionResult Details(int? id)
         {
@@ -27,7 +47,9 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            show show = db.shows.Find(id);
+
+            //var show = db.shows.Contains(  Find(id);
+            var show = db.shows.Find(id);
             if (show == null)
             {
                 return HttpNotFound();

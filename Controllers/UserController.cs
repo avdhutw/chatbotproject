@@ -83,11 +83,7 @@ namespace demoofuserplans.Controllers
                     var plan = db.Prepaid_Plan.Where((p) => p.Plan_id == user.Plan_id).FirstOrDefault();
                     if (plan != null)
                         return plan.getPlaninfo();
-
-
                 }
-
-
             };
             return "You dont have a prepaid plan...";
         }
