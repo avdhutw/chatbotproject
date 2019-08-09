@@ -29,12 +29,12 @@ namespace demoofuserplans.Controllers
         //}
         //[HttpPost]
         //[ActionName("TestPost1")]
-        public JsonResult serachApi(string inputstring)
+        public JsonResult searchApi(string inputstring)
         {
 
 
             var data = db.shows.Where(x => x.channel_name.Contains(inputstring)).ToList();
-
+           
 
             return Json(data,JsonRequestBehavior.AllowGet);
         }
