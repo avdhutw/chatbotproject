@@ -15,13 +15,13 @@ namespace demoofuserplans.Controllers
     {
          mobile_appEntities2 db = new mobile_appEntities2();
 
-        IRegister_UserRepository repository;
+        IRegister_PrepaidPlanRepository repository;
 
         public Register_PlanController() : this(new Register_PrepaidPlanRepository()) { }
 
         public Register_PlanController(IRegister_PrepaidPlanRepository repository)
         {
-          //  this.repository = repository;
+            this.repository = repository;
         }
 
         // GET: Register_Plan
