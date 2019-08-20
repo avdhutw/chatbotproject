@@ -40,11 +40,14 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //var user = this.repository.GetUser_byid;
+           // user.Find(id);
             User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+
             return View(user);
         }
 
@@ -113,7 +116,7 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-          //  var user = this.repository.delete_User();
+          // var user = User.delete_User(id)
 
             User user = db.Users.Find(id);
             if (user == null)

@@ -21,7 +21,7 @@ namespace demoofuserplans.Controllers
 
         public Register_PlanController(IRegister_PrepaidPlanRepository repository)
         {
-            this.repository = repository;
+          //  this.repository = repository;
         }
 
         // GET: Register_Plan

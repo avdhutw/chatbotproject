@@ -17,12 +17,15 @@ namespace demoofuserplans.Repositories
         public void Add_User(User user)
         {
 
-            db = new mobile_appEntities2();
+            db.Users.Add(user);
+            db.SaveChanges();
         }
 
         public void delete_User(int id)
         {
-            throw new NotImplementedException();
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
+            db.SaveChanges();
         }
 
         public void Dispose()
@@ -45,7 +48,7 @@ namespace demoofuserplans.Repositories
 
         public void update_User(User user)
         {
-            throw new NotImplementedException();
+           //  db.Users.Entry(user)
         }
     }
 }

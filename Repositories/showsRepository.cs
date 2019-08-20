@@ -49,6 +49,9 @@ namespace demoofuserplans.Repositories
             throw new NotImplementedException();
         }
 
-       
+        public void Update_shows(show show)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
