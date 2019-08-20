@@ -34,15 +34,17 @@ namespace demoofuserplans.Controllers
         }
 
         // GET: Register_User/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //var user = this.repository.GetUser_byid;
+            // user.Find(id);
+            var user = this.repository.GetUser_byid(id);
+            // User user = db.Users
            // user.Find(id);
-            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -55,7 +57,7 @@ namespace demoofuserplans.Controllers
         public ActionResult Create()
         {
             ViewBag.plans = new SelectList(db.Prepaid_Plan, "Plan_id", "Plan_name");
-
+           // ViewBag.plans = repository.Add_User()
 
             return View();
         }
@@ -69,8 +71,9 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
+                //db.Users.Add(user);
+                //db.SaveChanges();
+                repository.Add_User(user);
                 return RedirectToAction("Index");
             }
 
@@ -102,23 +105,26 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(user).State = EntityState.Modified;
+                //db.SaveChanges();
+                this.repository.update_User(user);
+
                 return RedirectToAction("Index");
             }
             return View(user);
         }
 
         // GET: Register_User/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-          // var user = User.delete_User(id)
+            // var user = User.delete_User(id)
+           // repository.delete_User(id);
 
-            User user = db.Users.Find(id);
+           User user = this.repository.GetUser_byid(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -131,9 +137,10 @@ namespace demoofuserplans.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
+            //User user = db.Users.Find(id);
+            //db.Users.Remove(user);
+            //db.SaveChanges();
+            repository.delete_ConfirmUser(id);
             return RedirectToAction("Index");
         }
 

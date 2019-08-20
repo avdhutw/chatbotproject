@@ -95,8 +95,8 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prepaid_Plan).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(prepaid_Plan).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(prepaid_Plan);

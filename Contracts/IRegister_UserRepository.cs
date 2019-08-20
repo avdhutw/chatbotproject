@@ -20,6 +20,8 @@ namespace demoofuserplans.Contracts
         //delete user byid
         void delete_User(int id);
 
+        void delete_ConfirmUser(int id);
+
       
 
     }

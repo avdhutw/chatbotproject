@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using demoofuserplans.Models;
 using demoofuserplans.Contracts;
+using System.Data.Entity;
 
 namespace demoofuserplans.Repositories
 {
@@ -43,7 +44,8 @@ namespace demoofuserplans.Repositories
 
         public void Update_planbyid(int id)
         {
-            throw new NotImplementedException();
+           // db.Entry(prepaid_Plan).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }
