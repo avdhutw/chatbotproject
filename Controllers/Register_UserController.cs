@@ -6,18 +6,31 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using demoofuserplans.Contracts;
 using demoofuserplans.Models;
+using demoofuserplans.Repositories;
 
 namespace demoofuserplans.Controllers
 {
     public class Register_UserController : Controller
     {
-        private mobile_appEntities2 db = new mobile_appEntities2();
+       mobile_appEntities2 db = new mobile_appEntities2();
 
         // GET: Register_User
+
+        IRegister_UserRepository repository;
+
+        public Register_UserController() : this(new Register_UserRepository()) { }
+
+        public Register_UserController(IRegister_UserRepository repository)
+        {
+            this.repository = repository;
+        }
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            var user = this.repository.GetAll_users();
+            
+            return View(user);
         }
 
         // GET: Register_User/Details/5
@@ -100,6 +113,8 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+          //  var user = this.repository.delete_User();
+
             User user = db.Users.Find(id);
             if (user == null)
             {

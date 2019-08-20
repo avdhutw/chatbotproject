@@ -183,6 +183,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Contracts\IPrepaid_PlanRepository.cs" />
+    <Compile Include="Contracts\IRegister_PrepaidPlanRepository.cs" />
+    <Compile Include="Contracts\IRegister_UserRepository.cs" />
+    <Compile Include="Contracts\IshowsRepository.cs" />
+    <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrepaidPlanController.cs" />
     <Compile Include="Controllers\Register_PlanController.cs" />
@@ -219,6 +224,11 @@
       <DependentUpon>userdb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Prepaid_PlanRepository.cs" />
+    <Compile Include="Repositories\Register_PrepaidPlanRepository.cs" />
+    <Compile Include="Repositories\Register_UserRepository.cs" />
+    <Compile Include="Repositories\showsRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

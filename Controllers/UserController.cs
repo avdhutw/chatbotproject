@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
+using demoofuserplans.Contracts;
+using demoofuserplans.Repositories;
+
 
 namespace demoofuserplans.Controllers
 {
@@ -17,6 +20,15 @@ namespace demoofuserplans.Controllers
     public class UserController : ApiController
     {
         mobile_appEntities2 db = new mobile_appEntities2();
+
+        IUserRepository repository;
+
+        public UserController() : this(new UserRepository()) { }
+
+        public UserController(IUserRepository repository)
+        {
+            this.repository = repository;
+        }
 
         //[HttpPost]
         //public IHttpActionResult Post()
@@ -91,7 +103,9 @@ namespace demoofuserplans.Controllers
         private string GetAllPlans()
         {
             var sp = new StringBuilder();
-            db.Prepaid_Plan.ToList().ForEach((x) =>
+            var plans = this.repository.All_plans();
+
+            plans.ForEach((x) =>
             {
                 sp.Append($"{ x.Plan_name}  is avaible at {x.Datalimit_per}GB/per day" + Environment.NewLine);
             });

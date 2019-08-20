@@ -6,17 +6,29 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using demoofuserplans.Contracts;
+using demoofuserplans.Repositories;
 using demoofuserplans.Models;
-
 namespace demoofuserplans.Controllers
 {
     public class Register_PlanController : Controller
     {
-        private mobile_appEntities2 db = new mobile_appEntities2();
+         mobile_appEntities2 db = new mobile_appEntities2();
+
+        IRegister_UserRepository repository;
+
+        public Register_PlanController() : this(new Register_PrepaidPlanRepository()) { }
+
+        public Register_PlanController(IRegister_PrepaidPlanRepository repository)
+        {
+            this.repository = repository;
+        }
 
         // GET: Register_Plan
         public ActionResult Index()
         {
+           // var plans = this.repository.GetPrepaid_Plans();
+
             return View(db.Prepaid_Plan.ToList());
         }
 
@@ -27,6 +39,7 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
             if (prepaid_Plan == null)
             {
@@ -92,10 +105,14 @@ namespace demoofuserplans.Controllers
         // GET: Register_Plan/Delete/5
         public ActionResult Delete(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+
+           
             Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
             if (prepaid_Plan == null)
             {

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using demoofuserplans.Models;
+using demoofuserplans.Contracts;
+using demoofuserplans.Repositories;
 
 namespace demoofuserplans.Controllers
 {
@@ -14,10 +16,20 @@ namespace demoofuserplans.Controllers
     {
         private mobile_appEntities2 db = new mobile_appEntities2();
 
+
+        IshowsRepository repository;
+
+        public showsController() : this(new showsRepository()) { }
+
+        public showsController(IshowsRepository repository)
+        {
+            this.repository = repository;
+        }
         // GET: shows
         public ActionResult Index()
         {
-            return View(db.shows.ToList());
+            var shows = this.repository.GetShows();
+            return View(shows);
         }
 
 
@@ -41,13 +53,14 @@ namespace demoofuserplans.Controllers
 
 
         // GET: shows/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
+           // var shows = repository.GetShow_byid();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             //var show = db.shows.Contains(  Find(id);
             var show = db.shows.Find(id);
             if (show == null)
@@ -87,6 +100,8 @@ namespace demoofuserplans.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+          
+
             show show = db.shows.Find(id);
             if (show == null)
             {

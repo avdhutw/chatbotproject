@@ -582,3 +582,7 @@ C:\chatbotproject\obj\Debug\demoofuserplans.csproj.CoreCompileInputs.cache
 C:\chatbotproject\obj\Debug\demoofuserplans.csproj.CopyComplete
 C:\chatbotproject\obj\Debug\demoofuserplans.dll
 C:\chatbotproject\obj\Debug\demoofuserplans.pdb
+C:\WORK\chatbotproject\obj\Debug\demoofuserplans.csprojAssemblyReference.cache
+C:\WORK\chatbotproject\obj\Debug\demoofuserplans.csproj.CoreCompileInputs.cache
+C:\WORK\chatbotproject\obj\Debug\demoofuserplans.dll
+C:\WORK\chatbotproject\obj\Debug\demoofuserplans.pdb
