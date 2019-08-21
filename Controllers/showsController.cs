@@ -39,7 +39,7 @@ namespace demoofuserplans.Controllers
 
         //    return Json(data, JsonRequestBehavior.AllowGet);
         //}
-        //[HttpPost]
+        ///[HttpPost]
         //[ActionName("TestPost1")]
         public JsonResult searchApi(string inputstring)
         {
