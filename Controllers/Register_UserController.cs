@@ -81,14 +81,15 @@ namespace demoofuserplans.Controllers
         }
 
         // GET: Register_User/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             ViewBag.plans = new SelectList(db.Prepaid_Plan, "Plan_id", "Plan_name");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            var user = this.repository.GetUser_byid(id);
+          //  User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -124,7 +125,7 @@ namespace demoofuserplans.Controllers
             // var user = User.delete_User(id)
            // repository.delete_User(id);
 
-           User user = this.repository.GetUser_byid(id);
+           var user = this.repository.GetUser_byid(id);
             if (user == null)
             {
                 return HttpNotFound();

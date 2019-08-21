@@ -27,25 +27,28 @@ namespace demoofuserplans.Controllers
         // GET: Register_Plan
         public ActionResult Index()
         {
-           // var plans = this.repository.GetPrepaid_Plans();
+          var prepaid_plan = repository.GetPrepaid_Plans();
 
-            return View(db.Prepaid_Plan.ToList());
+            return View(prepaid_plan);
+
+            // return View(db.Prepaid_Plan.ToList());
         }
 
         // GET: Register_Plan/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+           var Prepaid_plan = this.repository.GetPrepaid_Planbyid(id);
 
-            Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
-            if (prepaid_Plan == null)
+          //  Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
+            if (id == null)
             {
                 return HttpNotFound();
             }
-            return View(prepaid_Plan);
+            return View(Prepaid_plan);
         }
 
         // GET: Register_Plan/Create
@@ -63,8 +66,9 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Prepaid_Plan.Add(prepaid_Plan);
-                db.SaveChanges();
+                //db.Prepaid_Plan.Add(prepaid_Plan);
+                //db.SaveChanges();
+                repository.Add_Prepaid_plan(prepaid_Plan);
                 return RedirectToAction("Index");
             }
 
@@ -72,18 +76,20 @@ namespace demoofuserplans.Controllers
         }
 
         // GET: Register_Plan/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
-            if (prepaid_Plan == null)
+            //this.repository.Update_planbyid(id)
+            var Prepaid_Plan = this.repository.GetPrepaid_Planbyid(id);
+           //Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
+            if (Prepaid_Plan == null)
             {
                 return HttpNotFound();
             }
-            return View(prepaid_Plan);
+            return View(Prepaid_Plan);
         }
 
         // POST: Register_Plan/Edit/5
@@ -97,13 +103,15 @@ namespace demoofuserplans.Controllers
             {
                 //db.Entry(prepaid_Plan).State = EntityState.Modified;
                 //db.SaveChanges();
+                  this.repository.update_plan(prepaid_Plan);
+                
                 return RedirectToAction("Index");
             }
             return View(prepaid_Plan);
         }
 
         // GET: Register_Plan/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
 
             if (id == null)
@@ -112,13 +120,13 @@ namespace demoofuserplans.Controllers
             }
 
 
-           
-            Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
-            if (prepaid_Plan == null)
+            var prepaid_plan = this.repository.GetPrepaid_Planbyid(id);
+          //  Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
+            if (prepaid_plan == null)
             {
                 return HttpNotFound();
             }
-            return View(prepaid_Plan);
+            return View(prepaid_plan);
         }
 
         // POST: Register_Plan/Delete/5
@@ -126,9 +134,10 @@ namespace demoofuserplans.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
-            db.Prepaid_Plan.Remove(prepaid_Plan);
-            db.SaveChanges();
+            //Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
+            //db.Prepaid_Plan.Remove(prepaid_Plan);
+            //db.SaveChanges();
+            this.repository.Delete_planbyid(id);
             return RedirectToAction("Index");
         }
 

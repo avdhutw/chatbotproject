@@ -62,7 +62,9 @@ namespace demoofuserplans.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //var show = db.shows.Contains(  Find(id);
-            var show = db.shows.Find(id);
+            // var show = db.shows.Find(id);
+            var show = this.repository.GetShow_byid(id);
+
             if (show == null)
             {
                 return HttpNotFound();
@@ -85,8 +87,10 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.shows.Add(show);
-                db.SaveChanges();
+                //db.shows.Add(show);
+                //db.SaveChanges();
+                repository.Add_show(show);
+
                 return RedirectToAction("Index");
             }
 
@@ -94,15 +98,15 @@ namespace demoofuserplans.Controllers
         }
 
         // GET: shows/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-          
 
-            show show = db.shows.Find(id);
+         var show = this.repository.GetShow_byid(id);
+          //  show show = db.shows.Find(id);
             if (show == null)
             {
                 return HttpNotFound();
@@ -119,21 +123,23 @@ namespace demoofuserplans.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(show).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(show).State = EntityState.Modified;
+                //db.SaveChanges();
+                this.repository.Update_shows(show);
                 return RedirectToAction("Index");
             }
             return View(show);
         }
 
         // GET: shows/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            show show = db.shows.Find(id);
+            var show = this.repository.GetShow_byid(id);
+           // show show = db.shows.Find(id);
             if (show == null)
             {
                 return HttpNotFound();
@@ -146,9 +152,11 @@ namespace demoofuserplans.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            show show = db.shows.Find(id);
-            db.shows.Remove(show);
-            db.SaveChanges();
+            //show show = db.shows.Find(id);
+            //db.shows.Remove(show);
+            //db.SaveChanges();
+            repository.Delete_shows(id);
+
             return RedirectToAction("Index");
         }
 

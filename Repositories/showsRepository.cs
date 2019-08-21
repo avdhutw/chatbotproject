@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using demoofuserplans.Contracts;
@@ -18,13 +19,16 @@ namespace demoofuserplans.Repositories
 
         public void Add_show(show show)
         {
-            db = new mobile_appEntities2();
+            db.shows.Add(show);
+            db.SaveChanges();
         }
 
 
         public void Delete_shows(int id)
         {
-            throw new NotImplementedException();
+            show show = db.shows.Find(id);
+            db.shows.Remove(show);
+            db.SaveChanges();
         }
 
         public void Dispose()
@@ -46,12 +50,13 @@ namespace demoofuserplans.Repositories
      
         public void Update_shows(int id)
         {
-            throw new NotImplementedException();
+            show show = db.shows.Find(id);
         }
 
         public void Update_shows(show show)
         {
-            throw new NotImplementedException();
+            db.Entry(show).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

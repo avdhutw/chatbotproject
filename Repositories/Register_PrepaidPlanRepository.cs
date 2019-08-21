@@ -18,20 +18,28 @@ namespace demoofuserplans.Repositories
 
       
 
-        public void Add_Prepaid_plan(Prepaid_Plan Plan)
+        public void Add_Prepaid_plan(Prepaid_Plan prepaid_Plan)
         {
-            throw new NotImplementedException();
+            db.Prepaid_Plan.Add(prepaid_Plan);
+            db.SaveChanges();
         }
 
 
         public void Delete_planbyid(int id)
         {
-            throw new NotImplementedException();
+            Prepaid_Plan prepaid_Plan = db.Prepaid_Plan.Find(id);
+            db.Prepaid_Plan.Remove(prepaid_Plan);
+            db.SaveChanges();
         }
 
         public void Dispose()
         {
             db.Dispose();
+        }
+
+        public Prepaid_Plan GetPrepaid_Planbyid(int id)
+        {
+            return db.Prepaid_Plan.Find(id);
         }
 
         public List<Prepaid_Plan> GetPrepaid_Plans()
@@ -40,12 +48,16 @@ namespace demoofuserplans.Repositories
 
         }
 
+        public void update_plan(Prepaid_Plan prepaid_Plan)
+        {
+            db.Entry(prepaid_Plan).State = EntityState.Modified;
+            db.SaveChanges();
+        }
 
 
         public void Update_planbyid(int id)
         {
-           // db.Entry(prepaid_Plan).State = EntityState.Modified;
-            db.SaveChanges();
+            throw new NotImplementedException();
         }
     }
 }
