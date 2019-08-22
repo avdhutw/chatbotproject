@@ -315,6 +315,10 @@
     <Content Include="Views\shows\Edit.cshtml" />
     <Content Include="Views\shows\Index.cshtml" />
     <Content Include="Views\shows\searchApi.cshtml" />
+    <Content Include="Views\Home\FDC_BOT.cshtml" />
+    <Content Include="Views\Home\OTD_BOT.cshtml" />
+    <Content Include="Views\Home\TripPlanner_Bot.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

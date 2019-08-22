@@ -14,5 +14,24 @@ namespace demoofuserplans.Controllers
 
             return View();
         }
+        public ActionResult FDC_BOT()
+        {
+            ViewBag.Title = "FDC_BOT";
+
+            return View();
+        }
+
+        public ActionResult OTD_BOT()
+        {
+            ViewBag.Title = "OTD_BOT";
+
+            return View();
+        }
+        public ActionResult TripPlanner_Bot()
+        {
+            ViewBag.Title = "TripPlanner_Bot";
+
+            return View();
+        }
     }
 }

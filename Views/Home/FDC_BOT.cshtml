@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "FDC_BOT";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <iframe allow="microphone;"
+                width="350"
+                height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/24ea6d57-b45a-45ee-bd3a-827986b46e23"></iframe>
+    </div>
+    <div class="col-md-4">
+        <h2>Some sample data</h2>
+        <table class="table">
+            <tr><td>9822763405</td><td>	1993-06-10</td></tr>
+            <tr><td>8788501510</td><td>	1994-07-10</td></tr>
+            <tr><td>9822172776</td><td>	1993-07-11</td></tr>
+            <tr><td>9814250385</td><td>	1995-03-22</td></tr>
+            <tr><td>8788511478</td><td>	1992-01-12</td></tr>
+            <tr><td>9822121245</td><td>	1991-09-16</td></tr>
+            <tr><td>9822121245</td><td>	1996-06-10</td></tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h2>Flow</h2>
+        <p>Me : Hey what prepaid plans are available ?</p>
+        <p>Bot: Plans are ... (data from api)</p>
+        <p>Me: And which plan i am using ?</p>
+        <p>Bot: Kindly confirm your phone Number and birthdate</p>
+        <p>Me: One of the data </p>
+        <p>Bot: Repondes with data</p>
+    </div>
+     @Html.ActionLink("Back to list", "Index")
+    
+</div>

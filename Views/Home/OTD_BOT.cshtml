@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "OTD_BOT";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <iframe allow="microphone;"
+                width="350"
+                height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/31a81b5e-e16d-42cc-a703-8936804d14b6"></iframe>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Some sample data</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Channel name</th>
+
+                </tr>
+            </thead>
+            <tr><td>SET</td></tr>
+            <tr><td>SAB</td></tr>
+            <tr><td>SONY MARATHI</td></tr>
+            <tr><td>LIV FOOD</td></tr>
+            <tr><td>Liv Music</td></tr>
+
+            
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Flow</h2>
+        <p>Me : Hey what shows are available?</p>
+        <p>Bot: Please enter channel name ?</p>
+        <p>Me: channel name </p>
+        <p>Bot: show available on channel is (respond with data)</p>
+        
+    </div>
+    <div class="col-md-4">
+        <h2>Some sample data</h2>
+        <table class="table">
+            <tr><td>Netflix</td><td>3 Month Subscription</td><td>Now at Rs.149/-</td></tr>
+            <tr><td>Netflix</td><td>1 Year Subscription</td><td>Now at Rs.249/-</td></tr>
+            <tr><td>Amazon Prime</td><td>3 Month Subscriptionn</td><td>Now at Rs.149/-</td></tr>
+            <tr><td>Amazon Prime</td><td>1 Year Subscription</td><td>Now at Rs.249/-</td></tr>
+            <tr><td>Hot star</td><td>3 Month Subscription</td><td>Now at Rs.149/-</td></tr>
+            <tr><td>Hot star</td><td>1 Year Subscription</td><td>Now at Rs.249/-</td></tr>
+            <tr>
+                <td>
+
+                    @Html.ActionLink("Back to list", "Index")
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -38,6 +38,7 @@ namespace demoofuserplans.Repositories
 
         public List<show> GetShows()
         {
+
             return db.shows.ToList();
         }
 

@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using demoofuserplans.Models;
 using demoofuserplans.Contracts;
 using demoofuserplans.Repositories;
+using System.Text;
+using Google.Apis.Dialogflow.v2.Data;
 
 namespace demoofuserplans.Controllers
 {
@@ -25,11 +27,27 @@ namespace demoofuserplans.Controllers
         {
             this.repository = repository;
         }
+
+
+        //public ActionResult getshows()
+        //{
+
+        //}
+
         // GET: shows
+
+        [HttpPost]
+        [ActionName("Getshows")]
         public ActionResult Index()
         {
+            var sp = new StringBuilder();
+
             var shows = this.repository.GetShows();
-            return View(shows);
+           // return View(shows);
+            var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
+            return Json(response);
+
+
         }
 
 

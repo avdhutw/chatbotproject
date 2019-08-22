@@ -13,7 +13,8 @@ namespace demoofuserplans.Contracts
         User GetUser_byid(int id);
         //uses info
         User Getuses_info(float GB);
-        //plan info by phone no and dob
+        //list of shows 
+        List<show> shows();
 
     }
 }

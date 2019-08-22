@@ -35,5 +35,11 @@ namespace demoofuserplans.Repositories
         {
             throw new NotImplementedException();
         }
+      
+
+        public List<show> shows()
+        {
+            return db.shows.ToList();
+        }
     }
 }

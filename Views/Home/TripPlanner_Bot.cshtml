@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "TripPlanner_Bot";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        <iframe allow="microphone;"
+                width="350"
+                height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/d18bfce4-3523-42aa-b9c1-9102c1752c4b"></iframe>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Some sample data</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Book flight</th>
+                    <th scope="col">Book room</th>
+                    <th scope="col">Book car</th>
+                </tr>
+            </thead>
+            <tr><td>Date</td><td>Date</td><td>City</td></tr>
+            <tr><td>Flying from</td><td>city</td><td>City</td></tr>
+            <tr><td>Flying to</td><td>Room type</td><td>Car type</td></tr>
+            <tr><td>Flight type</td><td></td></tr>
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h2>Flow</h2>
+        <p>Me : Hey book flight for me</p>
+        <p>Bot: what date you want to book ticket ? </p>
+        <p>Me:  date</p>
+        <p>Bot: which city are you flying from ?</p>
+        <p>Me:  city name </p>
+        <p>Bot: which city are you flying to ?</p>
+        <p>Me:  city  name</p>
+
+    </div>
+    @Html.ActionLink("Back to list", "Index")
+
+</div>

@@ -48,6 +48,10 @@ namespace demoofuserplans.Controllers
                 case "getplans":
                     item = this.GetAllPlans();
                     break;
+
+                case "Getshows":
+                    item = this.getshow();
+                    break;
                 case "getmyplan":
 
                     DateTime date = Body.queryResult.parameters.date[0].Value;
@@ -124,6 +128,22 @@ namespace demoofuserplans.Controllers
                 sp.Append($"{x.Lastthree_m}GB {x.Lastsix_m}GB {x.Lastone_yr}GB" + Environment.NewLine);
             });
             return sp.ToString();
+
+        }
+
+       
+        public string getshow()
+        {
+            var sp = new StringBuilder();
+
+            var shows = this.repository.shows();
+            // return View(shows);
+            shows.ForEach((x) =>
+            {
+                sp.Append($"{ x.channel_name} show {x.show_name}" + Environment.NewLine);
+            });
+            return sp.ToString();
+
 
         }
 
