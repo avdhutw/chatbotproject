@@ -8,8 +8,9 @@ namespace demoofuserplans.Contracts
 {
    public  interface IshowsRepository
     {
-        List<show> GetShows();
+        List<show> GetShows(string channelname);
         //get details byid
+
         show GetShow_byid(int id);
         //add new show
         void Add_show(show show);

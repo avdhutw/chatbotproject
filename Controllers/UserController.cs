@@ -49,8 +49,10 @@ namespace demoofuserplans.Controllers
                     item = this.GetAllPlans();
                     break;
 
-                case "Getshows":
-                    item = this.getshow();
+                case "getshows":
+                    string channelname = Body.queryResult.parameters["channelname"][0].Value;
+
+                    item = this.getshow(channelname);
                     break;
                 case "getmyplan":
 
@@ -131,16 +133,17 @@ namespace demoofuserplans.Controllers
 
         }
 
-       
-        public string getshow()
+
+        public string getshow(string channelname)
         {
             var sp = new StringBuilder();
-
-            var shows = this.repository.shows();
+            IshowsRepository repository = new showsRepository();
+            var shows = repository.GetShows(channelname);
             // return View(shows);
+            sp.Append($"{channelname} shows "+ Environment.NewLine);
             shows.ForEach((x) =>
             {
-                sp.Append($"{ x.channel_name} show {x.show_name}" + Environment.NewLine);
+                sp.Append($"{x.show_name}" + Environment.NewLine);
             });
             return sp.ToString();
 
@@ -148,16 +151,16 @@ namespace demoofuserplans.Controllers
         }
 
 
-        //[HttpPost]
-        //public async Task<IHttpActionResult> InsertUser(User user)
-        //{
+        [HttpPost]
+        public async Task<IHttpActionResult> InsertUser(User user)
+        {
 
 
-        //    db.Users.Add(user);
-        //    await db.SaveChangesAsync();
+            db.Users.Add(user);
+            await db.SaveChangesAsync();
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
     }
 }

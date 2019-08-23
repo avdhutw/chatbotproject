@@ -192,7 +192,7 @@
     <Compile Include="Controllers\PrepaidPlanController.cs" />
     <Compile Include="Controllers\Register_PlanController.cs" />
     <Compile Include="Controllers\Register_UserController.cs" />
-    <Compile Include="Controllers\showsController.cs" />
+    <Compile Include="Controllers\ShowsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -318,7 +318,6 @@
     <Content Include="Views\Home\FDC_BOT.cshtml" />
     <Content Include="Views\Home\OTD_BOT.cshtml" />
     <Content Include="Views\Home\TripPlanner_Bot.cshtml" />
-    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

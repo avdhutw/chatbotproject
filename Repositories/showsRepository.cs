@@ -36,10 +36,10 @@ namespace demoofuserplans.Repositories
             db.Dispose();
         }
 
-        public List<show> GetShows()
+        public List<show> GetShows(string channelname)
         {
 
-            return db.shows.ToList();
+            return db.shows.Where(x =>x.channel_name == channelname).ToList();
         }
 
         public show GetShow_byid(int id)

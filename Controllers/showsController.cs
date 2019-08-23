@@ -14,16 +14,17 @@ using Google.Apis.Dialogflow.v2.Data;
 
 namespace demoofuserplans.Controllers
 {
-    public class showsController : Controller
+    public class ShowsController : Controller
     {
         private mobile_appEntities2 db = new mobile_appEntities2();
 
 
         IshowsRepository repository;
 
-        public showsController() : this(new showsRepository()) { }
 
-        public showsController(IshowsRepository repository)
+        public ShowsController() : this(new showsRepository()) { }
+
+        public ShowsController(IshowsRepository repository)
         {
             this.repository = repository;
         }
@@ -40,15 +41,22 @@ namespace demoofuserplans.Controllers
         [ActionName("Getshows")]
         public ActionResult Index()
         {
+            //string item = "";
+           // string action = Body.queryResult.action;
+
             var sp = new StringBuilder();
 
-            var shows = this.repository.GetShows();
+          //  var shows = this.repository.GetShows();
            // return View(shows);
             var response = new GoogleCloudDialogflowV2beta1WebhookResponse();
+           // response.FulfillmentText = shows;
+
             return Json(response);
 
 
         }
+
+
 
 
         //public JsonResult searchstring(string inputstring)
